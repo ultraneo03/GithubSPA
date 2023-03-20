@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css?family=Abel");
+
+@font-face {
+  font-family: "Abel";
+  src: url("./assets/fonts/Abel-Regular.ttf");
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Abel, Arial, Verdana, sans-serif;
+}
