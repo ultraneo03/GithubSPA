@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+/* This is the routing configuration for the application. */
 const routes: Routes = [
   {
     path: '', redirectTo: 'home', pathMatch: 'full'

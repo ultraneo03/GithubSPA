@@ -10,7 +10,12 @@ export class GithubService {
 
   constructor(private http: HttpClient) { }
 
-  getUserGithub(username: string): Observable<GitHubUser | any> {
-    return this.http.get<GitHubUser>('https://api.github.com/users/'+username) as Observable<GitHubUser |any>;
+  /**
+   * The function takes a string as an argument, and returns an Observable of type GitHubUser or any
+   * @param {string} username - string - The username of the GitHub user you want to get.
+   * @returns Observable<GitHubUser>
+   */
+  getUserGithub(username: string): Observable<GitHubUser> {
+    return this.http.get<GitHubUser>('https://api.github.com/users/'+username) as Observable<GitHubUser>;
   }
 }

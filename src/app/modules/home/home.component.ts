@@ -27,6 +27,11 @@ export class HomeComponent implements OnInit {
 
   gitHubUser?: GitHubUser;
 
+  /**
+   * The constructor function is used to initialize the component class properties
+   * @param {GithubService} gitHubService - This is the service we created earlier.
+   * @param {FormBuilder} fb - FormBuilder - This is the Angular FormBuilder service.
+   */
   constructor(private gitHubService: GithubService, private fb: FormBuilder) {
     // load validations for login form
     this.searchGroup = this.fb.group({
@@ -38,6 +43,13 @@ export class HomeComponent implements OnInit {
 
   }
 
+ /**
+  * The function checks if the form is valid, if it is, it sets the firstUse variable to false, then it
+  * calls the getUserGithub function from the GitHubService, passing the username value from the form.
+  * If the call is successful, it sets the gitHubUser variable to the result, sets the userFound
+  * variable to true, and logs the result to the console. If the call is unsuccessful, it logs the
+  * error to the console and sets the userFound variable to false
+  */
   getGitHubUserInformation(){
     if(this.searchGroup.valid){
       this.firstUse = false;

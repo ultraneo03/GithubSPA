@@ -26,7 +26,9 @@
         <div class="user-card">
           <div class="level center">{{ gitHubUser.login }}</div>
           <img class="round" [src]="gitHubUser.avatar_url" />
-          <div class="points center">{{ gitHubUser.created_at }}</div>
+          <div class="points center">
+            {{ gitHubUser.created_at | date : "EEE MMM dd yyyy" }}
+          </div>
         </div>
         <div class="more-info">
           <h1>{{ gitHubUser.name }}</h1>
@@ -71,9 +73,11 @@
   </div>
 </div>
 <div class="container" *ngIf="!userFound && !firstUse">
-  <div class="content">
-    <div class="card">
-      No hay usuarios que cumplan con el criterio de búsqueda
+  <div class="card">
+    <div class="additional">
+      <div class="center-blog">
+        <span>No hay usuarios que cumplan con el criterio de búsqueda</span>
+      </div>
     </div>
   </div>
 </div>
