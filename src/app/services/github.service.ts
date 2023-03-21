@@ -15,7 +15,7 @@ export class GithubService {
    * @param {string} username - string - The username of the GitHub user you want to get.
    * @returns Observable<GitHubUser>
    */
-  getUserGithub(username: string): Observable<GitHubUser> {
-    return this.http.get<GitHubUser>('https://api.github.com/users/'+username) as Observable<GitHubUser>;
+  async getUserGithub(username: string): Promise<Observable<GitHubUser>> {
+    return await this.http.get<GitHubUser>('https://api.github.com/users/'+username) as Observable<GitHubUser>;
   }
 }

@@ -50,18 +50,18 @@ export class HomeComponent implements OnInit {
   * variable to true, and logs the result to the console. If the call is unsuccessful, it logs the
   * error to the console and sets the userFound variable to false
   */
-  getGitHubUserInformation(){
+  async getGitHubUserInformation(){
     if(this.searchGroup.valid){
-      this.firstUse = false;
-      this.gitHubService.getUserGithub(this.username?.value).subscribe(
+      (await this.gitHubService.getUserGithub(this.username?.value)).subscribe(
         (result)=> {
           this.gitHubUser=result;
           this.userFound = true;
-          console.log(this.gitHubUser);
+          this.firstUse = false;
         },
         error => {
           console.log(error);
           this.userFound = false;
+          this.firstUse = false;
         }
       )
     }
